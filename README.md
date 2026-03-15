@@ -90,6 +90,9 @@ Supported substitution mappings:
 
 Unmapped ingredients return an empty list — the agent tells the user no authentic substitute is available.
 
+> **Note — Dual Source of Substitution Data**
+> The substitution mappings are intentionally maintained in two places: the steering skill file (`.kiro/steering/skills/substitution-skill.md`) and the TypeScript utility (`src/utils/substitution.ts`). The skill file provides the mappings as agent context so the LLM knows the rules conversationally. The TS utility provides deterministic, executable validation — the agent can run it at runtime to get exact results without relying on the LLM to replicate ratio math or case-insensitive matching. This duplication trades a manual sync cost for runtime reliability. If the mappings are updated, both files must be changed to stay consistent.
+
 ## Recipe Template
 
 Every recipe file in `recipes/` follows this mandatory 6-section structure:
