@@ -1,0 +1,27 @@
+{
+  "name": "executive-chef",
+  "description": "South Indian culinary expert — suggests recipes, enforces authenticity, manages substitutions and recipe cache",
+  "prompt": "file://../steering/executive-chef.md",
+  "tools": ["*"],
+  "allowedTools": [
+    "read",
+    "write"
+  ],
+  "resources": [
+    "file://../../src/utils/validation.ts",
+    "file://../../src/utils/recipe-template.ts",
+    "file://../../src/utils/substitution.ts",
+    "file://../../recipes/**/*.md",
+    "file://../../logs/transaction-log.md",
+    "skill://../steering/skills/substitution-skill.md"
+  ],
+  "hooks": {
+    "postToolUse": [
+      {
+        "matcher": "fs_write",
+        "command": "echo 'MANDATORY: Invoke the sous-chef agent now. Read the recipe file just written from recipes/ and generate prep-list.md with exact measurements and step-by-step preparation instructions. Log the sous-chef transaction to logs/transaction-log.md. Do NOT skip this step.'"
+      }
+    ]
+  },
+  "welcomeMessage": "Welcome! Tell me what meal you're planning and I'll suggest 5 authentic South Indian recipes."
+}

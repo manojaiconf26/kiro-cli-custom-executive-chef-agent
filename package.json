@@ -1,0 +1,13 @@
+{
+  "name": "south-indian-chef-agent",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0",
+    "fast-check": "^3.19.0"
+  }
+}

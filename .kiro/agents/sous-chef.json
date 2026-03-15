@@ -1,0 +1,16 @@
+{
+  "name": "sous-chef",
+  "description": "Preparation and mise en place specialist — reads recipes and generates detailed prep lists with exact measurements",
+  "prompt": "file://../steering/sous-chef.md",
+  "tools": ["*"],
+  "allowedTools": [
+    "read",
+    "write"
+  ],
+  "resources": [
+    "file://../../src/utils/recipe-template.ts",
+    "file://../../recipes/**/*.md",
+    "file://../../logs/transaction-log.md"
+  ],
+  "welcomeMessage": "Ready to prep! Point me to a recipe file and I'll generate a detailed prep list."
+}
